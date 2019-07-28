@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MarkDown测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="css/editormd.min.css">
+
+   <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+    <script type="application/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript" src="js/bootstrap.js"></script>
+
+    <script type="application/javascript" src="js/editormd.min.js"></script>
+
+</head>
+<body>
+
+
+<form action="/insert.do" method="post">
+
+<div id="question-editor">
+    <textarea style="display:none;" th:text="${content}" name="content"></textarea>
+</div>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("question-editor", {
+             width  : "100%",
+             height : "500px",
+             path   : "/js/lib/",
+             placeholder:"请在此输入内容(可以带各种格式哟)",
+             imageUpload:true,
+             imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+             imageUploadURL : "/file/upload"
+        });
+    });
+</script>
+
+    <button type="submit" class="btn btn-success btn-publish">添加</button>
+
+</form>
+
+
+
+
+
+
+<p th:text="'' + ${content} + ''" />
+<br>
+<img style="width: 300px;height: 200px;" src="images/ek.jpg"/>
+
+
+</body>
+</html>
