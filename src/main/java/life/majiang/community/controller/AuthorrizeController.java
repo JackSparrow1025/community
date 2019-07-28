@@ -26,12 +26,7 @@ public class AuthorrizeController {
         user.setGmt_Modified(1L);
      //   userMapper.insert(user);
 
-
-
-
-
-
-        Integer id=6;
+        Integer id=5;
         User user1=userMapper.findById(id);
 
         session.setAttribute("user",user1);
